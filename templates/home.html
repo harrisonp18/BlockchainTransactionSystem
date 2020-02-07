@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Blockchain Transaction System</title>
+  </head>
+  <body>
+      {% extends "parent.html" %}
+      {% block content %}
+    <h1><center> Welcome to the Blockchain Transaction System </center></h1>
+    <h2><center>Commands</center></h2>
+    <p>Our blockchain is built as an API so each of the below commands is just an API endpoint with 
+      an associated python function. To use the commands simply append the one you'd like to use
+    to the end of the address. (i.e. http://127.0.0.1:5000/mine) </p>
+    <p> </p>
+    <p> </p>
+    <h4><center>GET Commands</center></h4>
+    <p>The below commands are get commands and can be appended directly
+      upon the current address in the address bar and the output will bbe displayed in the browser.
+    </p>
+    <p> </p>
+    <p><b> /mine</b> This command mines a new block and adds it to the chain.</p>
+    <p><b>/chain</b> This command prints out the entire chain</p>
+    <p><b>/nodes/resolve</b> This command runs the concensus algorith =m and updates your chain to be the most
+    up to date.</p>
+    <p> </p>
+    <p> </p>
+    <h4><center>POST Commands</center></h4>
+    <p>The below commands are require a HTTP requester of some sort. Options include cURL from within the terminal or Postman.
+    </p>
+    <p> </p>
+    <p><b> /transactions/new</b> This command mines a new block and adds it to the chain.</p>
+    <p>Example Input:</p>
+    <p>{</br>
+        "sender":"8594924d0d2f4f6381a4656c0998b7ac",</br>
+        "receiver":"someone_else",</br>
+        "value":1,</br>
+        "note": "first transaction"</br>
+      }</p>
+    <p><b>/nodes/register</b> This command reigisters new nodes to commincate with the blockchain.</p>
+    <p>Example Input:</p>
+    <p>{</br>
+        "nodes": ["http://10.100.157.70:5000"]</br>
+      }</p>
+    {% endblock %}
+  </body>
+</html>
