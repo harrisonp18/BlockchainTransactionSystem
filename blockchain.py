@@ -154,9 +154,9 @@ blockchain = Blockchain()
 def home():
     return render_template("home.html")
 
-@app.route('/about')
-def about():
-    return render_template("about.html")
+@app.route('/input')
+def input():
+    return render_template("input.html")
 
 ##transaction function
 @app.route('/transactions/new', methods= ['POST'])
@@ -250,6 +250,6 @@ def resolve():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=5000, debug=True)
     
 

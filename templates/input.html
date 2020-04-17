@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Input Transactions</title>
+  </head>
+  <body>
+      {% extends "parent.html" %}
+      {% block content %}
+    <h1> Input Transactions </h1>
+    
+        <form method="POST" name="inputForm">
+          <label>Sender</label>
+          <input name="sender">
+
+          <label>Receiver</label>
+          <input name="receiver">
+
+          <label>Value</label>
+          <input name="value">
+
+          <label>Note</label>
+          <input name="note">
+
+          <input type="submit" name="submit_button" value="Submit">
+        </form>
+    {% endblock %}
+  </body>
+</html>
