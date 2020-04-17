@@ -9,20 +9,20 @@
       {% block content %}
     <h1> Input Transactions </h1>
     
-        <form method="POST" name="inputForm">
+        <form method="POST" name="input_form">
           <label>Sender</label>
-          <input name="sender">
+          <input type="text" name="sender">
 
           <label>Receiver</label>
-          <input name="receiver">
+          <input type="text" name="receiver">
 
           <label>Value</label>
-          <input name="value">
+          <input type="text" name="value">
 
           <label>Note</label>
-          <input name="note">
+          <input type="text" name="note">
 
-          <input type="submit" name="submit_button" value="Submit">
+          <input type="submit" value="Submit">
         </form>
     {% endblock %}
   </body>

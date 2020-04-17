@@ -154,16 +154,12 @@ blockchain = Blockchain()
 def home():
     return render_template("home.html")
 
-@app.route('/input')
-def input():
-    return render_template("input.html")
-
 ##transaction function
 @app.route('/transactions/new', methods= ['POST','GET'])
 def new_transaction():
     if request.method == "POST":
 
-        values = request.form["inputForm"].get_json()
+        values = request.form.to_dict(flat=False)
 
         ##verify the fields all have entries
         required = ['sender', 'receiver', 'value', 'note']
