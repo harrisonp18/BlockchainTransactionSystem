@@ -159,20 +159,24 @@ def input():
     return render_template("input.html")
 
 ##transaction function
-@app.route('/transactions/new', methods= ['POST'])
+@app.route('/transactions/new', methods= ['POST','GET'])
 def new_transaction():
-    values = request.get_json()
+    if request.method == "POST":
 
-    ##verify the fields all have entries
-    required = ['sender', 'receiver', 'value', 'note']
-    if not all(k in values for k in required):
-        return 'Missing values', 400
+        values = request.form["inputForm"].get_json()
 
-    ##creates transaction
-    index = blockchain.create_transaction(values['sender'], values['receiver'], values['value'], values['note'])
+        ##verify the fields all have entries
+        required = ['sender', 'receiver', 'value', 'note']
+        if not all(k in values for k in required):
+            return 'Missing values', 400
 
-    response = {'message': f'Transaction added to block {index}'}
-    return jsonify(response), 201
+        ##creates transaction
+        index = blockchain.create_transaction(values['sender'], values['receiver'], values['value'], values['note'])
+
+        response = {'message': f'Transaction added to block {index}'}
+        return jsonify(response), 201
+    else:
+        return render_template("input.html")
 
 ##mine function
 @app.route('/mine', methods=["GET"])
